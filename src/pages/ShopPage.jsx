@@ -182,8 +182,8 @@ export default function ShopPage() {
                       image={product.images?.[0]?.url || productPlaceholder}
                       title={product.name || "Product"}
                       department={truncatedDesc}
-                      originalPrice={product.price || 16.48}
-                      salePrice={product.sell_price || product.price || 6.48}
+                      originalPrice={`$${product.price || 16.48}`}
+                      salePrice={`$${product.sell_price || product.price || 6.48}`}
                       colors={[]}
                       category={categoryInfo}
                     />

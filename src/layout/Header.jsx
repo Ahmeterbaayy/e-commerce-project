@@ -143,9 +143,13 @@ export default function Header() {
         {showMobileMenu && (
           <div className="flex flex-col items-center justify-center w-full pb-2 gap-2 bg-white shadow-lg z-50">
             <Link to="/" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Home</Link>
-            <Link to="/shop" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Product</Link>
-            <Link to="/pricing" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Pricing</Link>
+            <Link to="/shop" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Shop</Link>
+            <Link to="/about" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">About</Link>
+            <Link to="/blog" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Blog</Link>
             <Link to="/contact" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Contact</Link>
+            <Link to="/team" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Team</Link>
+            <Link to="/pricing" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Pricing</Link>
+            <Link to="/pages" className="text-[#8c8c8c] text-base font-medium py-1 w-full text-center hover:text-[#23a6f0] active:text-[#1a8cd8] focus:underline transition-colors">Pages</Link>
             <div className="w-full border-t border-[#e6e6e6] my-2"></div>
             {isLoggedIn ? (
               <>

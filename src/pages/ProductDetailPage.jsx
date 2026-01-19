@@ -228,7 +228,7 @@ export default function ProductDetailPage() {
               {/* Price */}
               <div className="mb-[5px]">
                 <span className="font-['Montserrat'] text-2xl font-bold text-[#252b42]">
-                  ₺{selectedProduct.price}
+                  ${selectedProduct.price}
                 </span>
               </div>
 

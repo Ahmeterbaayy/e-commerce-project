@@ -57,7 +57,7 @@ const OrderStep2Payment = () => {
       card_expire_month: card.expire_month,
       card_expire_year: card.expire_year,
       card_ccv: card.cvv,
-      price,
+      price: `$${price}`,
       products
     };
     dispatch(addOrder(payload));

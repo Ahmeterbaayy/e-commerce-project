@@ -194,7 +194,7 @@ export default function PricingPage() {
                   </span>
                   <div className="flex gap-[10px] items-center shrink-0 flex-nowrap relative overflow-hidden z-[56]">
                     <span className="h-[50px] shrink-0 basis-auto font-['Montserrat'] text-[40px] font-bold leading-[50px] text-[#23a6f0] tracking-[0.2px] relative text-left whitespace-nowrap z-[57]">
-                      {plan.price}
+                      ${plan.price}
                     </span>
                     <div className="flex w-[76px] flex-col items-start shrink-0 flex-nowrap relative z-[58]">
                       <span className="h-[32px] shrink-0 basis-auto font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#23a6f0] tracking-[0.1px] relative text-left whitespace-nowrap z-[59]">

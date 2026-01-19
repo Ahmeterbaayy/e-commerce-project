@@ -34,7 +34,7 @@ const PreviousOrders = () => {
                 <div className="flex flex-col md:flex-row md:items-center gap-2">
                   <span className="font-semibold text-gray-800">Sipariş #{order.id}</span>
                   <span className="text-gray-500 text-sm">{new Date(order.order_date).toLocaleString()}</span>
-                  <span className="text-orange-600 font-bold ml-2">₺{order.price}</span>
+                  <span className="text-orange-600 font-bold ml-2">${order.price}</span>
                 </div>
                 <svg className={`w-5 h-5 ml-2 transition-transform ${openId === order.id ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
@@ -43,7 +43,7 @@ const PreviousOrders = () => {
                   <div className="border-t pt-4 mt-2">
                     <div className="mb-2 text-gray-700 font-semibold">Adres ID: {order.address_id}</div>
                     <div className="mb-2 text-gray-700 font-semibold">Kart: **** **** **** {String(order.card_no).slice(-4)} ({order.card_name})</div>
-                    <div className="mb-2 text-gray-700 font-semibold">Toplam: ₺{order.price}</div>
+                    <div className="mb-2 text-gray-700 font-semibold">Toplam: ${order.price}</div>
                     <div className="mb-2 text-gray-700 font-semibold">Ürünler:</div>
                     <ul className="pl-4 list-disc text-gray-600">
                       {order.products && order.products.map((p, i) => (

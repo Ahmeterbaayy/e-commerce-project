@@ -50,15 +50,15 @@ export default function ProductCard({ id = "1", image, title, department, origin
             {salePrice && parseFloat(salePrice) < parseFloat(originalPrice) ? (
               <>
                 <span className="h-[20px] sm:h-[24px] font-['Montserrat'] text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[24px] text-[#bdbdbd] tracking-[0.1px] whitespace-nowrap line-through">
-                  ₺{originalPrice}
+                  {originalPrice}
                 </span>
                 <span className="h-[20px] sm:h-[24px] font-['Montserrat'] text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[24px] text-[#23856d] tracking-[0.1px] whitespace-nowrap">
-                  ₺{salePrice}
+                  {salePrice}
                 </span>
               </>
             ) : (
               <span className="h-[20px] sm:h-[24px] font-['Montserrat'] text-[14px] sm:text-[16px] font-bold leading-[20px] sm:leading-[24px] text-[#23856d] tracking-[0.1px] whitespace-nowrap">
-                ₺{originalPrice}
+                {originalPrice}
               </span>
             )}
           </div>

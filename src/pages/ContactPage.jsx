@@ -1,8 +1,10 @@
 import React from "react";
-import shoppingFamily from "../assets/images/shopping-img/shopping-family.png";
+import shoppingFamily from "../assets/images/contactPage-img/contact-banner.png";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import ArrowIcon from "../assets/images/contactPage-img/icn settings .icn-xl.png";
+import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function ContactPage() {
   return (
@@ -13,43 +15,50 @@ export default function ContactPage() {
       {/* Hero Section */}
       <div className="w-full h-[882px] shrink-0 bg-[#fff] relative overflow-hidden">
         {/* Main Content */}
-        <div className="flex w-full max-w-[1050px] pt-[112px] pr-0 pb-[112px] pl-0 md:pl-0 flex-col gap-[80px] items-start flex-nowrap relative overflow-hidden z-[31] mt-[13px] mx-auto" style={{marginLeft: '180px'}}>
-          <div className="flex w-[1044px] gap-[30px] items-center shrink-0 flex-nowrap relative overflow-hidden z-[32]">
-            <div className="flex w-[599px] flex-col gap-[35px] items-start shrink-0 flex-nowrap relative overflow-hidden z-[33]">
+        <div className="flex w-full max-w-[1050px] pt-[40px] md:pt-[112px] pr-0 pb-[40px] md:pb-[112px] pl-0 md:pl-0 flex-col gap-[40px] md:gap-[80px] items-center md:items-start flex-nowrap relative overflow-hidden z-[31] mt-[0] md:mt-[13px] mx-auto md:ml-[180px]">
+          <div className="flex flex-col md:flex-row w-full md:w-[1044px] gap-[20px] md:gap-[30px] items-center shrink-0 flex-nowrap relative overflow-hidden z-[32]">
+            <div className="flex w-full md:w-[599px] flex-col gap-[20px] md:gap-[35px] items-center md:items-start shrink-0 flex-nowrap relative overflow-hidden z-[33]">
               <span className="h-[24px] shrink-0 basis-auto font-['Montserrat'] text-[16px] font-bold leading-[24px] text-[#252b42] tracking-[0.1px] relative text-left whitespace-nowrap z-[34]">
                 CONTACT US
               </span>
               <span
-                className="
-                  hidden sm:flex w-[378px] h-[160px] justify-start items-start shrink-0 font-['Montserrat'] text-[58px] font-bold leading-[80px] text-[#252b42] tracking-[0.2px] relative text-left overflow-hidden z-[35]
-                "
+                className="hidden md:flex w-[378px] h-[160px] justify-start items-start shrink-0 font-['Montserrat'] text-[58px] font-bold leading-[80px] text-[#252b42] tracking-[0.2px] relative text-left overflow-hidden z-[35]"
               >
                 Get in touch <br />
                 today!
               </span>
               <span
-                className="
-                  flex sm:hidden w-full justify-center items-center shrink-0 font-['Montserrat'] text-[32px] font-bold leading-[40px] text-[#252b42] tracking-[0.2px] relative text-center z-[35] mb-2
-                "
+                className="flex md:hidden w-full justify-center items-center shrink-0 font-['Montserrat'] text-[32px] font-bold leading-[40px] text-[#252b42] tracking-[0.2px] relative text-center z-[35] mb-2"
               >
                 Get in touch<br />today!
               </span>
-              <span className="flex w-[376px] h-[60px] justify-start items-start shrink-0 font-['Montserrat'] text-[20px] font-normal leading-[30px] text-[#727272] tracking-[0.2px] relative text-left overflow-hidden z-[36]">
-                We know how large objects will act, <br />
-                but things on a small scale
+              <span className="flex w-[376px] h-auto md:h-[60px] justify-start items-start shrink-0 font-['Montserrat'] text-[20px] font-normal leading-[30px] text-[#727272] tracking-[0.2px] relative text-left overflow-hidden z-[36]">
+                <span className="hidden md:block">We know how large objects will act, <br />but things on a small scale</span>
+                <span className="md:hidden text-center w-full">
+                  We know how large <br />
+                  objects will act, but things <br />
+                  on a small scale just do <br />
+                  not act that way
+                </span>
               </span>
               <div className="w-[260px] h-[84px] shrink-0 text-[0px] relative overflow-hidden z-[37]">
-                <span className="block h-[32px] font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#252b42] tracking-[0.1px] relative text-left whitespace-nowrap z-[38] mt-0 mr-0 mb-0 ml-0">
-                  Phone ; +451 215 215{" "}
+                <span className="block h-[32px] font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#252b42] tracking-[0.1px] relative text-center md:text-left whitespace-nowrap z-[38] mt-0 mr-0 mb-0 ml-0">
+                  Phone ; +451 215 215
                 </span>
-                <span className="block h-[32px] font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#252b42] tracking-[0.1px] relative text-left whitespace-nowrap z-[39] mt-[20px] mr-0 mb-0 ml-0">
+                <span className="block h-[32px] font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#252b42] tracking-[0.1px] relative text-center md:text-left whitespace-nowrap z-[39] mt-[20px] mr-0 mb-0 ml-0">
                   Fax : +451 215 215
                 </span>
               </div>
               <div className="flex w-[242px] pt-[10px] pr-[10px] pb-[10px] pl-[10px] gap-[34px] items-start shrink-0 flex-nowrap relative overflow-hidden z-40">
-                <Facebook className="w-[30px] h-[24px] text-[#252b42]" />
-                <Instagram className="w-[30px] h-[30px] text-[#252b42]" />
-                <Twitter className="w-[30px] h-[30px] text-[#252b42]" />
+                <div className="flex gap-6 items-center justify-center md:justify-start w-full">
+                  <FaTwitter className="w-8 h-8 text-[#252b42] bg-[#fff]" />
+                  <FaFacebookF className="w-8 h-8 text-[#252b42] bg-[#fff]" />
+                  <FaInstagram className="w-8 h-8 text-[#252b42] bg-[#fff]" />
+                  <FaLinkedinIn className="w-8 h-8 text-[#252b42] bg-[#fff]" />
+                </div>
+              </div>
+              <div className="md:hidden flex w-full justify-center items-center mt-0">
+                <img src={shoppingFamily} alt="shopping family" className="max-w-[90vw] w-[256px] h-auto mx-auto rounded-xl object-contain" style={{display:'block', marginTop:'0'}} />
               </div>
             </div>
             <div className="flex w-[415px] h-[280px] pt-0 pr-0 pb-0 pl-0 flex-col items-start shrink-0 flex-nowrap relative overflow-hidden z-[45]" />
@@ -57,15 +66,17 @@ export default function ContactPage() {
         </div>
         
         {/* Background Image positioned on the right */}
-        <div className="absolute top-0 bottom-0 left-0 right-0 z-[1]">
+        <div className="absolute top-0 bottom-0 left-0 right-0 z-[1] md:block hidden">
           <div className="w-full h-[853px] relative z-[2] mt-0 mr-0 mb-0 ml-0">
             <div 
-              className="w-[632px] h-[612px] relative z-[3] mt-[117px] mr-0 mb-0 md:ml-[900px]"
+              className="w-[632px] h-[612px] relative z-[3] mt-[20px] mr-0 mb-0 md:ml-[900px]"
               style={{
                 backgroundImage: `url(${shoppingFamily})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat'
+                backgroundSize: 'contain',
+                backgroundPosition: 'right center',
+                backgroundRepeat: 'no-repeat',
+                height: '100%',
+                minHeight: '400px'
               }}
             >
               {/* Overlay to hide any watermarks */}
@@ -77,7 +88,7 @@ export default function ContactPage() {
       </div>
 
       {/* Visit Our Office Section */}
-      <div className="w-full self-stretch shrink-0 bg-[#fff] relative overflow-hidden z-[46] py-[112px]">
+      <div className="w-full self-stretch shrink-0 bg-[#fff] relative overflow-hidden z-[46] py-[12px] md:py-[112px]">
         <div className="flex w-full max-w-[1050px] px-4 flex-col gap-[80px] items-center flex-nowrap relative overflow-hidden z-[47] mx-auto">
           <div className="flex w-[633px] flex-col items-center shrink-0 flex-nowrap relative overflow-hidden z-[48]">
             <div className="flex w-[625px] flex-col gap-[10px] items-center shrink-0 flex-nowrap relative overflow-hidden z-[49]">
@@ -95,10 +106,10 @@ export default function ContactPage() {
           </div>
           
           {/* Contact Cards */}
-          <div className="flex w-[985px] items-center shrink-0 flex-nowrap relative z-[52]">
+          <div className="flex flex-col md:flex-row w-full md:w-[985px] items-center shrink-0 flex-nowrap relative z-[52] gap-6 md:gap-0">
             {/* First Card - White */}
-            <div className="flex w-[327px] flex-col items-start shrink-0 flex-nowrap relative z-[53]">
-              <div className="flex w-[328px] pt-[50px] pr-[40px] pb-[50px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#fff] relative overflow-hidden z-[54]">
+            <div className="flex w-full md:w-[327px] flex-col items-start shrink-0 flex-nowrap relative z-[53]">
+              <div className="flex w-full md:w-[328px] pt-[50px] pr-[40px] pb-[50px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#fff] relative overflow-hidden z-[54]">
                 <Phone className="w-[72px] h-[72px] text-[#23a6f0]" />
                 <div className="w-[250px] h-[48px] shrink-0 text-[0px] relative overflow-hidden z-[56]">
                   <span className="flex w-[250px] h-[24px] justify-center items-start font-['Montserrat'] text-[14px] font-bold leading-[24px] text-[#252b42] tracking-[0.2px] relative text-center whitespace-nowrap z-[57] mt-0 mr-0 mb-0 ml-0">
@@ -120,8 +131,8 @@ export default function ContactPage() {
             </div>
             
             {/* Second Card - Dark */}
-            <div className="flex w-[329px] flex-col items-start shrink-0 flex-nowrap relative z-[62]">
-              <div className="flex w-[328px] pt-[80px] pr-[40px] pb-[80px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#252b42] relative overflow-hidden z-[63]">
+            <div className="flex w-full md:w-[329px] flex-col items-start shrink-0 flex-nowrap relative z-[62]">
+              <div className="flex w-full md:w-[328px] pt-[80px] pr-[40px] pb-[80px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#252b42] relative overflow-hidden z-[63]">
                 <MapPin className="w-[72px] h-[72px] text-[#23a6f0]" />
                 <div className="w-[250px] h-[48px] shrink-0 text-[0px] relative overflow-hidden z-[65]">
                   <span className="flex w-[250px] h-[24px] justify-center items-start font-['Montserrat'] text-[14px] font-bold leading-[24px] text-[#fff] tracking-[0.2px] relative text-center whitespace-nowrap z-[66] mt-0 mr-0 mb-0 ml-0">
@@ -143,9 +154,9 @@ export default function ContactPage() {
             </div>
             
             {/* Third Card - White */}
-            <div className="flex w-[329px] flex-col items-start shrink-0 flex-nowrap relative z-[71]">
-              <div className="flex w-[328px] pt-[50px] pr-[40px] pb-[50px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#fff] relative overflow-hidden z-[72]">
-                <Mail className="w-[72px] h-[72px] text-[#23a6f0]" />
+            <div className="flex w-full md:w-[329px] flex-col items-start shrink-0 flex-nowrap relative z-[71]">
+              <div className="flex w-full md:w-[328px] pt-[50px] pr-[40px] pb-[50px] pl-[40px] flex-col gap-[15px] items-center shrink-0 flex-nowrap bg-[#fff] relative overflow-hidden z-[72]">
+                <img src={ArrowIcon} alt="arrow icon" className="w-[72px] h-[72px] object-contain" />
                 <div className="w-[250px] h-[48px] shrink-0 text-[0px] relative overflow-hidden z-[74]">
                   <span className="flex w-[250px] h-[24px] justify-center items-start font-['Montserrat'] text-[14px] font-bold leading-[24px] text-[#252b42] tracking-[0.2px] relative text-center whitespace-nowrap z-[75] mt-0 mr-0 mb-0 ml-0">
                     georgia.young@example.com
