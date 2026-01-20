@@ -34,12 +34,12 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     if (productId) {
-      console.log('Fetching product ID:', productId);
+
       dispatch(fetchProductById(productId));
     }
   }, [dispatch, productId]);
 
-  console.log('ProductDetailPage - fetchState:', fetchState, 'selectedProduct:', selectedProduct);
+
 
   const isLoading = fetchState === 'FETCHING';
 

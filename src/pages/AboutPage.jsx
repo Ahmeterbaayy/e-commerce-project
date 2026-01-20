@@ -5,7 +5,7 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import aboutBanner from "../assets/images/aboutPage-img/about-banner.png";
-import aboutGrow from "../assets/images/aboutPage-img/about-grow.jpg";
+
 import videoCard from "../assets/images/aboutPage-img/Video card.png";
 import team1 from "../assets/images/teamPage-img/personal6.jpg";
 import team2 from "../assets/images/teamPage-img/personal7.jpg";
