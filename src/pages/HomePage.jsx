@@ -10,6 +10,18 @@ import menImg from "../assets/images/shopping-img/men.jpg";
 import womenImg from "../assets/images/shopping-img/women.jpg";
 import accessoriesImg from "../assets/images/shopping-img/accessories.jpg";
 import kidsImg from "../assets/images/shopping-img/kids.jpg";
+import product9 from "../assets/images/product-img/product9.jpg";
+import product10 from "../assets/images/product-img/product10.jpg";
+import product11 from "../assets/images/product-img/product11.jpg";
+import product12 from "../assets/images/product-img/product12.jpg";
+import product13 from "../assets/images/product-img/product13.jpg";
+import product14 from "../assets/images/product-img/product14.jpg";
+import product8 from "../assets/images/product-img/product8.jpg";
+import product15 from "../assets/images/product-img/product15.jpg";
+import mavi from "../assets/images/product-img/mavi.png";
+import yesil from "../assets/images/product-img/yesil.png";
+import turuncu from "../assets/images/product-img/turuncu.png";
+import koyu from "../assets/images/product-img/koyu.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -23,108 +35,68 @@ import ProductCard from "../components/ProductCard";
 export default function HomePage() {
   const products = [
     {
-      image: require("../assets/images/product-img/product9.jpg"),
+      image: product9,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product10.jpg"),
+      image: product10,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product11.jpg"),
+      image: product11,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product12.jpg"),
+      image: product12,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product13.jpg"),
+      image: product13,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product14.jpg"),
+      image: product14,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product8.jpg"),
+      image: product8,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     },
     {
-      image: require("../assets/images/product-img/product15.jpg"),
+      image: product15,
       title: "Graphic Design",
       department: "English Department",
       originalPrice: "16.48",
       salePrice: "6.48",
-      colors: [
-        require("../assets/images/product-img/mavi.png"),
-        require("../assets/images/product-img/yesil.png"),
-        require("../assets/images/product-img/turuncu.png"),
-        require("../assets/images/product-img/koyu.png")
-      ]
+      colors: [mavi, yesil, turuncu, koyu]
     }
   ];
 
