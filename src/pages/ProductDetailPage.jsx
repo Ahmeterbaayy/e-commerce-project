@@ -57,10 +57,10 @@ export default function ProductDetailPage() {
 
   if (!selectedProduct || fetchState === 'FAILED') {
     return (
-      <div className="flex w-full min-h-screen flex-col items-start flex-nowrap bg-white relative overflow-hidden">
+      <div className="flex w-full min-h-screen flex-col bg-white relative overflow-hidden justify-center items-center">
         <Header />
-        <div className="flex-1 flex flex-col items-center justify-center gap-4">
-          <p className="font-['Montserrat'] text-[16px] text-[#727272]">
+        <div className="flex-1 flex flex-col items-center justify-center gap-4 w-full">
+          <p className="font-['Montserrat'] text-[16px] text-[#727272] text-center">
             {fetchState === 'FAILED' ? 'Ürün yüklenirken hata oluştu.' : 'Ürün bulunamadı.'}
           </p>
           <button

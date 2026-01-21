@@ -156,7 +156,7 @@ export default function SignUpPage() {
                       message: 'Password must be at least 8 characters'
                     },
                     pattern: {
-                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W_]{8,}$/,
                       message: 'Password must include uppercase, lowercase, number and special character'
                     }
                   })}

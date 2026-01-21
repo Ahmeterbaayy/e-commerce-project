@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import staticImg from "../assets/images/featured-img/static.png";
 import carouselCaptions1 from "../assets/images/header-img/carouselCaptions1.png";
 import carouselCaptions2 from "../assets/images/header-img/carouselCaptions2.png";
@@ -152,9 +153,9 @@ export default function HomePage() {
                         </span>
                         <div className="flex w-full md:w-[221px] gap-[10px] items-start shrink-0 flex-nowrap relative z-[83]">
                           <div className="flex w-[221px] pt-[15px] pr-[40px] pb-[15px] pl-[40px] flex-col gap-[10px] items-center shrink-0 flex-nowrap bg-[#2cc070] rounded-[5px] relative overflow-hidden z-[84]">
-                            <span className="flex w-[141px] h-[32px] justify-center items-start shrink-0 basis-auto font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#fff] tracking-[0.1px] relative text-center whitespace-nowrap z-[85] hover:opacity-80 hover:scale-105 transition-all duration-200 cursor-pointer">
+                            <Link to="/shop" className="flex w-[141px] h-[32px] justify-center items-start shrink-0 basis-auto font-['Montserrat'] text-[24px] font-bold leading-[32px] text-[#fff] tracking-[0.1px] relative text-center whitespace-nowrap z-[85] hover:opacity-80 hover:scale-105 transition-all duration-200 cursor-pointer">
                               SHOP NOW
-                            </span>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -203,9 +204,9 @@ export default function HomePage() {
               <span className="mt-4 text-base max-w-[280px] text-white block">
                 We know how large objects will act, but things on a small scale.
               </span>
-              <button className="bg-[#2cc070] text-white font-bold mt-6 px-10 py-3 rounded hover:bg-green-600 transition cursor-pointer text-lg">
+              <Link to="/shop" className="bg-[#2cc070] text-white font-bold mt-6 px-10 py-3 rounded hover:bg-green-600 transition cursor-pointer text-lg block">
                 SHOP NOW
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -220,33 +221,33 @@ export default function HomePage() {
             <span className="text-[#727272] text-base text-center mt-2 mb-4 font-medium">Problems trying to resolve<br/>the conflict between</span>
           </div>
           {/* MEN */}
-          <div className="w-full bg-white flex flex-col items-center justify-center relative mb-4">
-            <img src={menImg} alt="MEN" className="w-full h-auto object-cover" />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
-              <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">MEN</span>
-            </div>
-          </div>
+              <Link to="/shop?category=men" className="w-full bg-white flex flex-col items-center justify-center relative mb-4 cursor-pointer">
+                <img src={menImg} alt="MEN" className="w-full h-auto object-cover" />
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
+                  <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">MEN</span>
+                </div>
+              </Link>
           {/* WOMEN */}
-          <div className="w-full bg-white flex flex-col items-center justify-center relative mb-4">
-            <img src={womenImg} alt="WOMEN" className="w-full h-auto object-cover" />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
-              <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">WOMEN</span>
-            </div>
-          </div>
+              <Link to="/shop?category=women" className="w-full bg-white flex flex-col items-center justify-center relative mb-4 cursor-pointer">
+                <img src={womenImg} alt="WOMEN" className="w-full h-auto object-cover" />
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
+                  <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">WOMEN</span>
+                </div>
+              </Link>
           {/* ACCESSORIES */}
-          <div className="w-full bg-white flex flex-col items-center justify-center relative mb-4">
-            <img src={accessoriesImg} alt="ACCESSORIES" className="w-full h-auto object-cover" />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
-              <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">ACCESSORIES</span>
-            </div>
-          </div>
+              <Link to="/shop?category=accessories" className="w-full bg-white flex flex-col items-center justify-center relative mb-4 cursor-pointer">
+                <img src={accessoriesImg} alt="ACCESSORIES" className="w-full h-auto object-cover" />
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
+                  <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">ACCESSORIES</span>
+                </div>
+              </Link>
           {/* KIDS */}
-          <div className="w-full bg-white flex flex-col items-center justify-center relative mb-4">
-            <img src={kidsImg} alt="KIDS" className="w-full h-auto object-cover" />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
-              <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">KIDS</span>
-            </div>
-          </div>
+              <Link to="/shop?category=kids" className="w-full bg-white flex flex-col items-center justify-center relative mb-4 cursor-pointer">
+                <img src={kidsImg} alt="KIDS" className="w-full h-auto object-cover" />
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-6 bg-white px-8 py-2 rounded-none shadow text-center">
+                  <span className="text-[#252b42] font-bold text-lg tracking-widest uppercase">KIDS</span>
+                </div>
+              </Link>
         </div>
         {/* Masaüstü (orijinal grid ve görsel düzeni) */}
         <div className="hidden md:block w-full bg-[#f9f9f9] relative overflow-hidden py-[50px] md:py-0">
@@ -263,8 +264,8 @@ export default function HomePage() {
             </div>
             <div className="grid w-full max-w-[1050px] gap-[15px] md:gap-[30px] grid-cols-2 md:grid-cols-[510px_240px_240px] grid-rows-2 items-start relative overflow-hidden px-4 md:px-0">
               {/* MEN */}
-              <div className="row-span-2 col-span-1 w-[510px] h-[500px] shrink-0 relative overflow-hidden">
-                <div className="w-full h-full bg-[#fff] absolute top-0 left-0 overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg">
+              <Link to="/shop?category=men" className="row-span-2 col-span-1 w-[510px] h-[500px] shrink-0 relative overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg">
+                <div className="w-full h-full bg-[#fff] absolute top-0 left-0 overflow-hidden">
                   <div className="w-[170px] h-[48px] bg-[#fff] relative overflow-hidden z-10 mt-[426px] mr-0 mb-0 ml-[31px]">
                     <span className="flex w-[40px] h-[24px] justify-center items-start font-['Montserrat'] text-[16px] font-bold leading-[24px] text-[#252b42] tracking-[0.1px] absolute top-[calc(50%-12px)] left-[calc(50%-21px)] text-center whitespace-nowrap">
                       MEN
@@ -275,9 +276,9 @@ export default function HomePage() {
                     <div className="bg-cover bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden" style={{backgroundImage: `url(${menImg})`}} />
                   </div>
                 </div>
-              </div>
+              </Link>
               {/* WOMEN */}
-              <div className="row-span-2 col-span-1 w-[240px] h-[500px] shrink-0 relative overflow-hidden">
+              <Link to="/shop?category=women" className="row-span-2 col-span-1 w-[240px] h-[500px] shrink-0 relative overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <div className="w-full h-full bg-[#fff] absolute top-0 left-0 overflow-hidden">
                   <div className="flex w-[136px] pt-[12px] pr-[48px] pb-[12px] pl-[48px] gap-[10px] justify-center items-center flex-nowrap bg-[#fff] relative overflow-hidden z-10 mt-[434px] mr-0 mb-0 ml-[21px]">
                     <span className="flex w-[69px] h-[24px] justify-center items-start shrink-0 basis-auto font-['Montserrat'] text-[16px] font-bold leading-[24px] text-[#252b42] tracking-[0.1px] relative text-center whitespace-nowrap">
@@ -286,12 +287,12 @@ export default function HomePage() {
                   </div>
                   <div className="absolute top-0 bottom-0 left-0 right-0 overflow-hidden">
                     <div className="w-full h-full bg-[rgba(33,33,33,0.05)] bg-cover bg-top bg-no-repeat relative overflow-hidden mt-0 mr-0 mb-0 ml-px" style={{backgroundImage: `url(${womenImg})`}} />
-                    <div className="bg-cover bg-top bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg" style={{backgroundImage: `url(${womenImg})`}} />
+                    <div className="bg-cover bg-top bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden" style={{backgroundImage: `url(${womenImg})`}} />
                   </div>
                 </div>
-              </div>
+              </Link>
               {/* ACCESSORIES */}
-              <div className="row-span-1 col-span-1 w-[240px] h-[245px] shrink-0 relative overflow-hidden">
+              <Link to="/shop?category=accessories" className="row-span-1 col-span-1 w-[240px] h-[245px] shrink-0 relative overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <div className="w-full h-full bg-[#fff] absolute top-0 left-0 overflow-hidden">
                   <div className="flex w-[118px] pt-[12px] pr-[40px] pb-[12px] pl-[40px] gap-[10px] justify-center items-center flex-nowrap bg-[#fff] relative overflow-hidden z-10 mt-[161px] mr-0 mb-0 ml-[21px]">
                     <span className="flex w-[69px] h-[24px] justify-center items-start shrink-0 basis-auto font-['Montserrat'] text-[16px] font-bold leading-[24px] text-[#252b42] tracking-[0.1px] relative text-center whitespace-nowrap">
@@ -300,12 +301,12 @@ export default function HomePage() {
                   </div>
                   <div className="absolute top-0 bottom-0 left-0 right-0 overflow-hidden">
                     <div className="w-full h-full bg-[rgba(33,33,33,0.05)] bg-cover bg-no-repeat relative overflow-hidden mt-0 mr-0 mb-0 ml-px" style={{backgroundImage: `url(${accessoriesImg})`}} />
-                    <div className="bg-cover bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg" style={{backgroundImage: `url(${accessoriesImg})`}} />
+                    <div className="bg-cover bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden" style={{backgroundImage: `url(${accessoriesImg})`}} />
                   </div>
                 </div>
-              </div>
+              </Link>
               {/* KIDS */}
-              <div className="row-span-1 col-span-1 w-[240px] h-[245px] shrink-0 relative overflow-hidden">
+              <Link to="/shop?category=kids" className="row-span-1 col-span-1 w-[240px] h-[245px] shrink-0 relative overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 <div className="w-full h-full bg-[#fff] absolute top-0 left-0 overflow-hidden">
                   <div className="flex w-[69px] pt-[12px] pr-[40px] pb-[12px] pl-[40px] gap-[10px] justify-center items-center flex-nowrap bg-[#fff] relative overflow-hidden z-10 mt-[161px] mr-0 mb-0 ml-[21px]">
                     <span className="flex w-[69px] h-[24px] justify-center items-start shrink-0 basis-auto font-['Montserrat'] text-[16px] font-bold leading-[24px] text-[#252b42] tracking-[0.1px] relative text-center whitespace-nowrap">
@@ -314,10 +315,10 @@ export default function HomePage() {
                   </div>
                   <div className="absolute top-0 bottom-0 left-0 right-0 overflow-hidden">
                     <div className="w-full h-full bg-[rgba(33,33,33,0.05)] bg-cover bg-no-repeat relative overflow-hidden mt-0 mr-0 mb-0 ml-px" style={{backgroundImage: `url(${kidsImg})`}} />
-                    <div className="bg-cover bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden group cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg" style={{backgroundImage: `url(${kidsImg})`}} />
+                    <div className="bg-cover bg-no-repeat absolute top-0 bottom-0 left-0 right-0 overflow-hidden" style={{backgroundImage: `url(${kidsImg})`}} />
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
