@@ -1,7 +1,13 @@
+import { addOrder } from '../store/reducers/ordersReducer';
+import { clearCart } from '../store/actions/shoppingCartActions';
+import { turkishCities } from '../data/turkishCities';
+import { Plus, ChevronRight } from 'lucide-react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import React, { useEffect, useState } from 'react';
 // Kart ekleme formu
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 const CardForm = ({ onCancel, onSubmit }) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   return (
@@ -44,45 +50,44 @@ const CardForm = ({ onCancel, onSubmit }) => {
     </form>
   );
 };
-import { turkishCities } from '../data/turkishCities';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useLocation, Link } from 'react-router-dom';
-import { Plus, ChevronRight } from 'lucide-react';
-import api from '../services/api';
-import { clearCart } from '../store/actions/shoppingCartActions';
-import { addOrder } from '../store/reducers/ordersReducer';
 
-const OrderPage = () => {
-    // Kart ekleme fonksiyonu artık burada
+  // ...OrderPage ana fonksiyonu burada başlıyor...
+
+  const OrderPage = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
+    const cart = useSelector(state => state.shoppingCart.cart);
+    const user = useSelector(state => state.client.user);
+    const [addresses, setAddresses] = useState([]);
+    const [cards, setCards] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [editingAddress, setEditingAddress] = useState(null);
+    const [selectedAddressId, setSelectedAddressId] = useState(null);
+    const [activeStep, setActiveStep] = useState(1);
+    const [selectedCardId, setSelectedCardId] = useState(null);
+    const [showCardForm, setShowCardForm] = useState(false);
+    const [error, setError] = useState("");
+    const subtotal = cart.reduce((sum, item) => {
+      if (!item || !item.product || typeof item.product.price !== 'number') return sum;
+      return item.checked ? sum + (item.product.price * item.count) : sum;
+    }, 0);
+    const shippingCost = subtotal > 150 || subtotal === 0 ? 0 : 29.99;
+    const grandTotal = subtotal + shippingCost;
+
+    // Kart ekleme fonksiyonu JSX dışında olmalı
     const handleCardSubmit = (data) => {
       try {
+        if (!user || !user.email) throw new Error("Kullanıcı bulunamadı");
+        const cardKey = `cards_${user.email}`;
         const newCards = [...cards, data];
         setCards(newCards);
-        localStorage.setItem("cards", JSON.stringify(newCards));
+        localStorage.setItem(cardKey, JSON.stringify(newCards));
         setShowCardForm(false);
       } catch (e) {
         alert("Kart eklenirken bir hata oluştu.");
       }
     };
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const location = useLocation();
-  const cart = useSelector(state => state.shoppingCart.cart);
-  const [addresses, setAddresses] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [editingAddress, setEditingAddress] = useState(null);
-  const [selectedAddressId, setSelectedAddressId] = useState(null);
-  const [activeStep, setActiveStep] = useState(1);
-  const [selectedCardId, setSelectedCardId] = useState(null);
-  const [showCardForm, setShowCardForm] = useState(false);
-  const [error, setError] = useState("");
-  const subtotal = cart.reduce((sum, item) => {
-    if (!item || !item.product || typeof item.product.price !== 'number') return sum;
-    return item.checked ? sum + (item.product.price * item.count) : sum;
-  }, 0);
-  const shippingCost = subtotal > 150 || subtotal === 0 ? 0 : 29.99;
-  const grandTotal = subtotal + shippingCost;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -92,7 +97,10 @@ const OrderPage = () => {
   }, [history, location]);
 
   useEffect(() => {
-    let loadedAddresses = JSON.parse(localStorage.getItem("addresses")) || [];
+    if (!user || !user.email) return;
+    const addressKey = `addresses_${user.email}`;
+    const cardKey = `cards_${user.email}`;
+    let loadedAddresses = JSON.parse(localStorage.getItem(addressKey)) || [];
     // id'si olmayan eski adreslere id ata
     let changed = false;
     loadedAddresses = loadedAddresses.map(addr => {
@@ -103,10 +111,10 @@ const OrderPage = () => {
       return addr;
     });
     if (changed) {
-      localStorage.setItem("addresses", JSON.stringify(loadedAddresses));
+      localStorage.setItem(addressKey, JSON.stringify(loadedAddresses));
     }
     setAddresses(loadedAddresses);
-    let loadedCards = JSON.parse(localStorage.getItem("cards")) || [];
+    let loadedCards = JSON.parse(localStorage.getItem(cardKey)) || [];
     let cardChanged = false;
     loadedCards = loadedCards.map(card => {
       if (!card.id) {
@@ -116,7 +124,7 @@ const OrderPage = () => {
       return card;
     });
     if (cardChanged) {
-      localStorage.setItem("cards", JSON.stringify(loadedCards));
+      localStorage.setItem(cardKey, JSON.stringify(loadedCards));
     }
     setCards(loadedCards);
     // Otomatik adres seçimi
@@ -127,7 +135,7 @@ const OrderPage = () => {
     if (loadedCards.length > 0 && !selectedCardId) {
       setSelectedCardId(loadedCards[0].id);
     }
-  }, [modalOpen, showCardForm]);
+  }, [modalOpen, showCardForm, user]);
 
   const handlePayment = () => {
     setError("");
@@ -167,13 +175,15 @@ const OrderPage = () => {
 
   const handleAddAddress = (data) => {
     try {
-      const newAddress = { ...data, id: Date.now() };
-      const newAddresses = [...addresses, newAddress];
-      setAddresses(newAddresses);
-      localStorage.setItem("addresses", JSON.stringify(newAddresses));
-      setSelectedAddressId(newAddress.id);
-      setModalOpen(false);
-      reset();
+        if (!user || !user.email) throw new Error("Kullanıcı bulunamadı");
+        const addressKey = `addresses_${user.email}`;
+        const newAddress = { ...data, id: Date.now() };
+        const newAddresses = [...addresses, newAddress];
+        setAddresses(newAddresses);
+        localStorage.setItem(addressKey, JSON.stringify(newAddresses));
+        setSelectedAddressId(newAddress.id);
+        setModalOpen(false);
+        reset();
     } catch (e) {
       setError("Adres eklenirken bir hata oluştu.");
     }

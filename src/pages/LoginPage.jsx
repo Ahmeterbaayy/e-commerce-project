@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Loader2 } from 'lucide-react';
-import { loginUser } from '../store/actions/clientActions';
+import { loginUser, setUser } from '../store/actions/clientActions';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 
@@ -16,25 +16,29 @@ export default function LoginPage() {
   const location = useLocation();
 
   const onSubmit = async (data) => {
-    try {
-      await dispatch(loginUser(
-        { email: data.email, password: data.password },
-        data.rememberMe
-      ));
-      
-      toast.success('Login successful!');
-      
-      // Redirect to previous page or home
-      const from = location.state?.from?.pathname || '/';
-      setTimeout(() => {
-        history.push(from);
-      }, 1000);
-
-    } catch (error) {
-      console.error('Login error:', error);
-      const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
-      toast.error(errorMessage);
+    // LocalStorage ile kullanıcı kontrolü
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.email === data.email);
+    if (!user) {
+      toast.error('Kullanıcı bulunamadı.');
+      return;
     }
+    if (user.password !== data.password) {
+      toast.error('Parola hatalı.');
+      return;
+    }
+    if (!user.isActive) {
+      toast.error('Hesabınız aktif değil.');
+      return;
+    }
+    dispatch(setUser(user));
+    localStorage.setItem('token', 'local-login');
+    toast.success('Login successful!');
+    // Redirect to previous page or home
+    const from = location.state?.from?.pathname || '/';
+    setTimeout(() => {
+      history.push(from);
+    }, 1000);
   };
 
   return (

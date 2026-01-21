@@ -56,18 +56,36 @@ export default function SignUpPage() {
         };
       }
 
-      await api.post('/signup', formData);
       
-      toast.success('You need to click link in email to activate your account!');
-      
-      // Redirect to previous page
+      // LocalStorage ile kullanıcı kaydı
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const emailExists = users.some(u => u.email === formData.email);
+      if (emailExists) {
+        toast.error('Bu e-posta adresi zaten kayıtlı.');
+        return;
+      }
+      users.push({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        isActive: true,
+        role_id: formData.role_id
+      });
+      localStorage.setItem('users', JSON.stringify(users));
+      toast.success('Kayıt başarılı! Giriş yapabilirsiniz.');
       setTimeout(() => {
-        history.goBack();
-      }, 2000);
+        history.push('/login');
+      }, 1500);
 
     } catch (error) {
       console.error('Signup error:', error);
-      const errorMessage = error.response?.data?.message || 'Kayıt sırasında bir hata oluştu';
+      let errorMessage = error.response?.data?.message || 'Kayıt sırasında bir hata oluştu';
+      if (
+        errorMessage.toLowerCase().includes('email') &&
+        (errorMessage.toLowerCase().includes('already') || errorMessage.toLowerCase().includes('kayıtlı') || errorMessage.toLowerCase().includes('exists'))
+      ) {
+        errorMessage = 'Bu e-posta adresi zaten kayıtlı.';
+      }
       toast.error(errorMessage);
     }
   };
