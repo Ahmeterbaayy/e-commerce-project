@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -131,9 +132,9 @@ export default function LoginPage() {
               {/* Sign Up Link */}
               <p className="font-['Montserrat'] text-[14px] text-center text-[#727272]">
                 Don't have an account?{' '}
-                <a href="/signup" className="text-[#23a6f0] font-bold hover:underline">
-                  Sign Up
-                </a>
+                  <Link to="/signup" className="text-[#23a6f0] font-bold hover:underline">
+                    Sign Up
+                  </Link>
               </p>
             </form>
           </div>
