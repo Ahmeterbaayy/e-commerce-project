@@ -18,7 +18,7 @@ const initialState = {
 const clientReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER: {
-      // Kullanıcıyı hem localStorage hem sessionStorage'a yaz
+        // Kullanıcıyı kaydet
       localStorage.setItem('user', JSON.stringify(action.payload));
       sessionStorage.setItem('user', JSON.stringify(action.payload));
       return {

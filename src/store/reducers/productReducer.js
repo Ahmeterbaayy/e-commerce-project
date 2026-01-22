@@ -16,7 +16,7 @@ const initialState = {
   limit: 25,
   offset: 0,
   filter: '',
-  fetchState: 'NOT_FETCHED', // "NOT_FETCHED", "FETCHING", "FETCHED", "FAILED"
+  fetchState: 'NOT_FETCHED', // Durum: NOT_FETCHED, FETCHING, FETCHED, FAILED
   selectedProduct: null,
 };
 

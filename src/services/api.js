@@ -8,7 +8,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor - Add token to every request if it exists
+// Token varsa ekle
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
@@ -22,11 +22,11 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor - Handle unauthorized responses
+// Yetkisiz cevap gelirse tokenı sil
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // If unauthorized (401), remove token from localStorage
+    // 401 ise tokenı sil
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');
       delete api.defaults.headers.common['Authorization'];

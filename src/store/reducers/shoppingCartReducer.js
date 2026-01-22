@@ -39,7 +39,7 @@ const shoppingCartReducer = (state = initialState, action) => {
     case ADD_TO_CART: {
       const { product } = action.payload || {};
       if (!product || !product.id) {
-        // Geçersiz ürün, ekleme
+          // Ürün yoksa ekleme
         return state;
       }
       const existingItemIndex = state.cart.findIndex(
@@ -47,7 +47,7 @@ const shoppingCartReducer = (state = initialState, action) => {
       );
 
       if (existingItemIndex >= 0) {
-        // Product already in cart, increase count
+          // Sepette varsa adeti artır
         const updatedCart = [...state.cart];
         updatedCart[existingItemIndex] = {
           ...updatedCart[existingItemIndex],
@@ -59,7 +59,7 @@ const shoppingCartReducer = (state = initialState, action) => {
           cart: updatedCart,
         };
       } else {
-        // New product, add to cart
+          // Sepete yeni ürün ekle
         const updatedCart = [
           ...state.cart,
           {

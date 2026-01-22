@@ -1,6 +1,6 @@
 import api from '../../services/api';
 
-// Action Types
+// Aksiyon tipleri
 export const SET_CATEGORIES = 'SET_CATEGORIES';
 export const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 export const SET_TOTAL = 'SET_TOTAL';
@@ -10,7 +10,7 @@ export const SET_OFFSET = 'SET_OFFSET';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_SELECTED_PRODUCT = 'SET_SELECTED_PRODUCT';
 
-// Action Creators
+// Aksiyon oluşturucular
 export const setCategories = (categories) => ({
   type: SET_CATEGORIES,
   payload: categories,
@@ -51,7 +51,7 @@ export const setSelectedProduct = (product) => ({
   payload: product,
 });
 
-// Thunk Action Creator for fetching categories
+// Kategori verisini API'dan çeker
 export const fetchCategories = () => {
   return async (dispatch) => {
     try {
@@ -65,7 +65,7 @@ export const fetchCategories = () => {
   };
 };
 
-// Thunk Action Creator for fetching products
+// Ürünleri API'dan çeker
 export const fetchProducts = (params = {}) => {
   return async (dispatch) => {
     try {
@@ -73,7 +73,7 @@ export const fetchProducts = (params = {}) => {
       
       const response = await api.get('/products', { params });
       
-      // Set total and products from response
+      // Toplam ve ürün listesini güncelle
       dispatch(setTotal(response.data.total));
       dispatch(setProductList(response.data.products));
       dispatch(setFetchState('FETCHED'));
@@ -87,7 +87,7 @@ export const fetchProducts = (params = {}) => {
   };
 };
 
-// Thunk Action Creator for fetching single product by ID
+// Tek bir ürünü ID ile getirir
 export const fetchProductById = (productId) => {
   return async (dispatch) => {
     try {
@@ -95,7 +95,7 @@ export const fetchProductById = (productId) => {
       
       const response = await api.get(`/products/${productId}`);
       
-      // Set selected product
+      // Seçili ürünü güncelle
       dispatch(setSelectedProduct(response.data));
       dispatch(setFetchState('FETCHED'));
       

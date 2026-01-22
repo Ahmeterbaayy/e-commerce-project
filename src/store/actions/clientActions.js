@@ -1,12 +1,12 @@
 import api from '../../services/api';
 
-// Action Types
+// Aksiyon tipleri
 export const SET_USER = 'SET_USER';
 export const SET_ROLES = 'SET_ROLES';
 export const SET_THEME = 'SET_THEME';
 export const SET_LANGUAGE = 'SET_LANGUAGE';
 
-// Action Creators
+// Aksiyon oluşturucular
 export const setUser = (user) => ({
   type: SET_USER,
   payload: user,
@@ -27,7 +27,7 @@ export const setLanguage = (language) => ({
   payload: language,
 });
 
-// Thunk Action Creator for fetching roles
+// Roller verisini API'dan çeker
 export const fetchRoles = () => {
   return async (dispatch) => {
     try {
@@ -41,7 +41,7 @@ export const fetchRoles = () => {
   };
 };
 
-// Thunk Action Creator for login
+// Giriş işlemi
 export const loginUser = (credentials, rememberMe = false) => {
   return async (dispatch) => {
     try {
@@ -52,7 +52,7 @@ export const loginUser = (credentials, rememberMe = false) => {
         localStorage.setItem('token', token);
         api.defaults.headers.common['Authorization'] = token;
       }
-      // Kullanıcıyı hem localStorage hem sessionStorage'a kaydet
+      // Kullanıcıyı kaydet
       localStorage.setItem('user', JSON.stringify(userData));
       sessionStorage.setItem('user', JSON.stringify(userData));
       dispatch(setUser(userData));
@@ -64,19 +64,19 @@ export const loginUser = (credentials, rememberMe = false) => {
   };
 };
 
-// Thunk Action Creator for logout
+// Çıkış işlemi
 export const logoutUser = () => {
   return (dispatch) => {
-    // Remove token and user from localStorage/sessionStorage
+    // Token ve kullanıcıyı sil
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     sessionStorage.removeItem('user');
-    // Clear user from store
+    // Store'dan kullanıcıyı temizle
     dispatch(setUser({}));
   };
 };
 
-// Thunk Action Creator for verifying token
+// Token doğrulama
 export const verifyToken = () => {
   return async (dispatch) => {
     const token = localStorage.getItem('token');
@@ -85,20 +85,20 @@ export const verifyToken = () => {
     }
     
     try {
-      // Token is already added to headers by interceptor
+      // Token zaten header'da var
       const response = await api.get('/verify');
-      // Kullanıcıyı hem localStorage hem sessionStorage'a kaydet
+      // Kullanıcıyı kaydet
       localStorage.setItem('user', JSON.stringify(response.data));
       sessionStorage.setItem('user', JSON.stringify(response.data));
       dispatch(setUser(response.data));
-      // Renew token if backend provides a new one
+      // Backend yeni token verirse güncelle
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
       }
       return response.data;
     } catch (error) {
       console.error('Token verification failed:', error);
-      // Remove invalid token and user from localStorage/sessionStorage
+      // Geçersiz token ve kullanıcıyı sil
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       sessionStorage.removeItem('user');
